@@ -444,3 +444,37 @@ function sendemail() {
 
         });
 }
+
+
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the form element and email input field
+    const form = document.getElementById('mc-form');
+    const emailInput = document.getElementById('mc-email');
+
+    // Add an event listener for form submission
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get the email value from the input field
+        const email = emailInput.value;
+
+        // Check if the email is valid
+        if (validateEmail(email)) {
+            // Here you can add the code to send the email (e.g., AJAX request to your server)
+            alert('Thank you for subscribing!');
+
+            // Optionally clear the input field after submission
+            emailInput.value = '';
+        } else {
+            // Show an error message if the email is invalid
+            alert('Please enter a valid email address.');
+        }
+    });
+
+    // Email validation function
+    function validateEmail(email) {
+        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return regex.test(email);
+    }
+});
