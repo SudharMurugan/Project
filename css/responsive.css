@@ -64,38 +64,7 @@
   .portfolio-item:hover .overlay-content-item {
     transform: translateY(0%);
   }
-  /*--------------blog----------------*/
-  .blog-single-item.blog-item-margin {
-    margin-bottom: 50px;
-  }
-  .blog-single-item .blog-text a {
-    margin-top: 8px;
-  }
-  .blog-text {
-    margin-top: 32px;
-  }
-  .blog-img.right::before {
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 14px 14px 0 14px;
-    border-color: #ffffff transparent transparent transparent;
-    position: absolute;
-    left: 48%;
-    top: 0px;
-  }
-  .blog-img.left::after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-    position: absolute;
-    left: 48%;
-    bottom: 0px;
-    border-color: transparent transparent #ffffff transparent;
-    border-width: 0 14px 14px 14px;
-  }
+  
   /*--------------contact----------------*/
   .contact-detail p {
     margin-bottom: 18px;

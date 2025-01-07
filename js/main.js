@@ -399,3 +399,48 @@
     });
 
 })(jQuery);
+
+
+
+
+
+function sendemail() {
+    var from_name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+
+    var templateParams = {
+        email: email,
+        from_name: from_name,
+        message: message,
+    };
+
+    emailjs.send('service_2epk9bv', 'template_xokonm8', templateParams)
+        .then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+
+            // Show a success alert with SweetAlert2
+            Swal.fire({
+                icon: 'success',
+                title: 'Message Sent!',
+                text: 'Thank you for connecting. I will get back to you soon!',
+                confirmButtonText: 'OK',
+                timer: 3000,
+                timerProgressBar: true
+            });
+
+            // Clear the form inputs after success
+            document.getElementById("contact-form").reset();
+
+        }, function (error) {
+            console.log('FAILED...', error);
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Failed to send your message. Please try again later.',
+                confirmButtonText: 'Retry',
+            });
+
+        });
+}
